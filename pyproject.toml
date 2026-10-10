@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "idrakin-deli-gomlegi"
+version = "3.0.0"
+description = "Milli icazetsiz düşünce, açık bilim, Ahilik tezgâhı ve otonom polimat manifestosu ve araç seti."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "CC-BY-NC-SA-4.0" }
+authors = [
+  { name = "Milli Otonom Arastirmacilar Toplulugu" }
+]
+keywords = [
+  "open-science",
+  "polymath",
+  "ahilik",
+  "reproducibility",
+  "first-principles",
+  "autonomous-research",
+  "manifesto"
+]
+dependencies = [
+  "requests>=2.31.0",
+  "markdown>=3.5.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/arch-yunus/idrakin-deli-gomlegi"
+Repository = "https://github.com/arch-yunus/idrakin-deli-gomlegi.git"
+Issues = "https://github.com/arch-yunus/idrakin-deli-gomlegi/issues"

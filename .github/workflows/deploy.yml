@@ -16,7 +16,32 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Open Science & Reproducibility Suite
+        run: |
+          python tests/test_scripts.py
+          python scripts/verify_reproducibility.py
+
+      - name: Rebuild Offline Omnibus Book
+        run: |
+          python scripts/generate_offline_book.py
+
   deploy:
+    needs: test
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
